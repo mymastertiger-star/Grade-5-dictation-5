@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدارس البيارق الأهلية - GRADE 5 DICTATION 5 WEEK 5</title>
+    <style>
+        :root {
+            --primary-color: #0d5c3a;
+            --primary-light: #e6f2ed;
+            --accent-color: #008751;
+            --gold-color: #d4af37;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            direction: rtl;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header-left {
+            text-align: left;
+        }
+
+        .header-left .level {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .header-left .sub {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .header-right .school-ar {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .header-right .school-en {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--gold-color);
+            letter-spacing: 0.5px;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 2.5rem auto;
+            padding: 0 1rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        .hero-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-desc {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .start-card {
+            background: var(--card-bg);
+            padding: 2.5rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 2rem;
+        }
+
+        .input-name {
+            width: 100%;
+            max-width: 450px;
+            padding: 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+            margin-bottom: 1.5rem;
+            background-color: #ffffff;
+        }
+
+        .input-name:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-main {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-main:hover {
+            background-color: #09472d;
+        }
+
+        .leaderboard-box {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .lb-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .lb-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-clear-all {
+            background: #fff0f0;
+            color: #d9534f;
+            border: 1px solid #ffcccc;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-clear-all:hover {
+            background: #ffe0e0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            padding: 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        th:first-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+        th:last-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 1rem;
+        }
+
+        .empty-msg {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .quiz-container {
+            display: none;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .audio-btn {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            margin: 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.08);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 1.5rem;
+            direction: ltr;
+        }
+
+        .option-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .option-card:hover {
+            border-color: var(--primary-color);
+            background: var(--primary-light);
+        }
+
+        .btn-delete-row {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .teacher-info {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-muted);
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="level">GRADE 5 DICTATION 5 WEEK 5</div>
+            <div class="sub">Week 5 Spelling Quiz</div>
+        </div>
+        <div class="header-right">
+            <div class="school-ar">مدارس البيارق الأهلية</div>
+            <div class="school-en">AL Bayariq Private Schools</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Main Start Screen -->
+        <div id="startScreen">
+            <h1 class="hero-title">🚀 تحدي إملاء وكلمات الصف الخامس (Week 5)</h1>
+            <p class="hero-desc">اختبر مهاراتك الإملائية مع خلط الأسئلة والخيارات تلقائياً في كل محاولة ونطق صوتي صحيح!</p>
+
+            <div class="start-card">
+                <input type="text" id="studentName" class="input-name" placeholder="اكتب اسم الطالب هنا..." autocomplete="off">
+                <br>
+                <button class="btn-main" onclick="startQuiz()">ابدأ التحدي الآن 🌟</button>
+                <div class="teacher-info">معلم المادة: Mr. Mohamed Abdalla Attia</div>
+            </div>
+
+            <!-- Leaderboard Table -->
+            <div class="leaderboard-box">
+                <div class="lb-header">
+                    <button class="btn-clear-all" onclick="clearLeaderboard()">🔒 مسح الجدول بالكامل</button>
+                    <div class="lb-title">🏆 لوحة شرف أوائل الصف الخامس (Week 5)</div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الترتيب</th>
+                            <th>اسم الطالب</th>
+                            <th>النسبة</th>
+                            <th>الميدالية</th>
+                            <th>حذف 🔒</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody">
+                        <!-- Dynamic Records -->
+                    </tbody>
+                </table>
+                <div id="emptyMsg" class="empty-msg">لا يوجد طلاب مسجلون حالياً. ابدأ الاختبار لإضافة أوائل المتفوقين!</div>
+            </div>
+        </div>
+
+        <!-- Interactive Quiz Screen -->
+        <div id="quizScreen" class="quiz-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-weight: bold;">
+                <span id="questionProgress">السؤال 1 من 10</span>
+                <span id="studentDisplayName">الطالب: </span>
+            </div>
+
+            <button class="audio-btn" onclick="playCurrentWordAudio()">🔊</button>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">اضغط الاستماع لنطق الكلمة ثم اختر الإملاء الصحيح:</p>
+
+            <div class="options-grid" id="optionsContainer">
+                <!-- Dynamic Options -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Word Bank for Grade 5 - Dictation 5 (Week 5)
+        const wordsList = [
+            { word: "Go for a walk", options: ["Go for a walk", "Go for a wok", "Go for walk", "Go for a walke"] },
+            { word: "Stay at home", options: ["Stay at home", "Stay at hom", "Stay at houm", "Stai at home"] },
+            { word: "nature", options: ["nature", "nachur", "natuer", "nayture"] },
+            { word: "poisonous", options: ["poisonous", "poysonous", "poisonus", "posonous"] },
+            { word: "shelter", options: ["shelter", "sheltar", "shellter", "sheltre"] },
+            { word: "Outside", options: ["Outside", "Outsid", "Outsyde", "Outeside"] },
+            { word: "backpack", options: ["backpack", "bakpack", "backpak", "bakpakc"] },
+            { word: "safe", options: ["safe", "saf", "sayf", "safeh"] },
+            { word: "experience", options: ["experience", "experiance", "expirience", "experiens"] },
+            { word: "survive", options: ["survive", "servive", "surviv", "sirvive"] }
+        ];
+
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let studentName = "";
+
+        // Web Audio API Sound Effects
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'correct') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.35);
+                } else {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(160, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.35);
+                }
+            } catch (e) {}
+        }
+
+        // Text To Speech (English Pronunciation)
+        function playCurrentWordAudio() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(currentQuestions[currentIndex].word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function shuffle(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function startQuiz() {
+            const nameInput = document.getElementById('studentName').value.trim();
+            if (!nameInput) {
+                alert('يرجى كتابة اسم الطالب أولاً للبدء!');
+                return;
+            }
+
+            studentName = nameInput;
+            document.getElementById('studentDisplayName').innerText = "الطالب: " + studentName;
+            
+            // Prepare and shuffle questions & options
+            currentQuestions = shuffle([...wordsList]).map(q => ({
+                word: q.word,
+                options: shuffle([...new Set(q.options)])
+            }));
+
+            currentIndex = 0;
+            score = 0;
+
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('quizScreen').style.display = 'block';
+
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentIndex >= currentQuestions.length) {
+                finishQuiz();
+                return;
+            }
+
+            const q = currentQuestions[currentIndex];
+            document.getElementById('questionProgress').innerText = `السؤال ${currentIndex + 1} من ${currentQuestions.length}`;
+            
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            q.options.forEach(opt => {
+                const btn = document.createElement('div');
+                btn.className = 'option-card';
+                btn.innerText = opt;
+                btn.onclick = () => selectOption(opt);
+                container.appendChild(btn);
+            });
+
+            setTimeout(() => { playCurrentWordAudio(); }, 300);
+        }
+
+        function selectOption(selectedOpt) {
+            const correctOpt = currentQuestions[currentIndex].word;
+            if (selectedOpt === correctOpt) {
+                playSound('correct');
+                score++;
+            } else {
+                playSound('wrong');
+            }
+
+            currentIndex++;
+            loadQuestion();
+        }
+
+        function finishQuiz() {
+            const percentage = Math.round((score / currentQuestions.length) * 100);
+            let medal = "🥉";
+            if (percentage >= 90) medal = "🥇";
+            else if (percentage >= 75) medal = "🥈";
+
+            saveToLeaderboard(studentName, percentage, medal);
+
+            alert(`تهانينا يا ${studentName}!\nلقد أكملت التحدي بنجاح.\nالنسبة: ${percentage}%\nالميدالية: ${medal}`);
+
+            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('startScreen').style.display = 'block';
+            document.getElementById('studentName').value = '';
+            renderLeaderboard();
+        }
+
+        // Leaderboard Management
+        function getLeaderboard() {
+            return JSON.parse(localStorage.getItem('bayariq_g5_w5_lb') || '[]');
+        }
+
+        function saveToLeaderboard(name, percentage, medal) {
+            const lb = getLeaderboard();
+            lb.push({ name, percentage, medal });
+            lb.sort((a, b) => b.percentage - a.percentage);
+            localStorage.setItem('bayariq_g5_w5_lb', JSON.stringify(lb));
+        }
+
+        function renderLeaderboard() {
+            const lb = getLeaderboard();
+            const tbody = document.getElementById('leaderboardBody');
+            const emptyMsg = document.getElementById('emptyMsg');
+
+            tbody.innerHTML = '';
+
+            if (lb.length === 0) {
+                emptyMsg.style.display = 'block';
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+
+            lb.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>#${index + 1}</strong></td>
+                    <td><strong>${item.name}</strong></td>
+                    <td style="color: var(--primary-color); font-weight: bold;">${item.percentage}%</td>
+                    <td style="font-size: 1.2rem;">${item.medal}</td>
+                    <td><button class="btn-delete-row" onclick="deleteRow(${index})">🔒</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function deleteRow(index) {
+            const pass = prompt('أدخل كلمة المرور لحذف هذا الطالب:');
+            if (pass === '1234') {
+                const lb = getLeaderboard();
+                lb.splice(index, 1);
+                localStorage.setItem('bayariq_g5_w5_lb', JSON.stringify(lb));
+                renderLeaderboard();
+            } else if (pass !== null) {
+                alert('كلمة المرور غير صحيحة!');
+            }
+        }
+
+        function clearLeaderboard() {
+            const pass = prompt('أدخل كلمة المرور لمسح جدول الأوائل بالكامل:');
+            if (pass === '1234') {
+                localStorage.removeItem('bayariq_g5_w5_lb');
+                renderLeaderboard();
+            } else if (pass !== null) {
+                alert('كلمة المرور غير صحيحة!');
+            }
+        }
+
+        // Initial Load
+        renderLeaderboard();
+    </script>
+</body>
+</html>
